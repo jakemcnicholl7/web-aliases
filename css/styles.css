@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+}
+
+.jumbotron {
+    color: #E0B0FF;
+    background-color: #f0f0f0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+input[type=text] {
+    border: #f0f0f0;
+    border-radius: 20px;
+    padding: 2px 8px
+}
+
+input[type=text]:focus {
+    border: #f0f0f0;
+    outline: #f0f0f0;
+    box-shadow: #f0f0f0;
+}
+
+.button {
+    border: none;
+    border-radius: 20px;
+    background-color: #B0B0B0;
+    color: white;
+}
+
+.button:hover {
+    background-color: #ff5c5c;
+    color: white;
+}
