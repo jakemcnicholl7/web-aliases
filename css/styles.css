@@ -40,3 +40,16 @@ input[type=text]:focus {
     background-color: #ff5c5c;
     color: white;
 }
+
+.alias-form {
+    margin: auto;
+    width: min-content;
+    border-radius: 40px;
+    background-color: #E0B0FF;
+    padding: 10px 10px;
+    white-space: nowrap;
+}
+
+.alias-field {
+    margin: 0 10px;
+}
