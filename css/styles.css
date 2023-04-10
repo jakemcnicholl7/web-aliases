@@ -41,8 +41,8 @@ input[type=text]:focus {
     color: white;
 }
 
-.alias-form {
-    margin: auto;
+.alias-widget {
+    margin: 10px auto;
     width: min-content;
     border-radius: 40px;
     background-color: #E0B0FF;
@@ -50,6 +50,10 @@ input[type=text]:focus {
     white-space: nowrap;
 }
 
-.alias-field {
+.field {
+    margin: 0 10px;
+}
+
+.badge {
     margin: 0 10px;
 }
