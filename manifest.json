@@ -4,6 +4,6 @@
     "version": "1.0",
     "description": "Web Aliases is a Chrome extension that allows users to create nicknames for websites so that users don't have to remember long URLs.",
     "action":{
-        "default_popup": "index.html"
+        "default_popup": "aliases.html"
     }
 }

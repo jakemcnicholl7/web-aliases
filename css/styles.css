@@ -1,4 +1,5 @@
 body {
+    min-width: 400px;
     text-align: center;
 }
 
@@ -18,6 +19,7 @@ a:hover {
 }
 
 input[type=text] {
+    width: 100px;
     border: #f0f0f0;
     border-radius: 20px;
     padding: 2px 8px
@@ -42,7 +44,7 @@ input[type=text]:focus {
 }
 
 .alias-widget {
-    margin: 10px auto;
+    margin: 10px 10px;
     width: min-content;
     border-radius: 40px;
     background-color: #E0B0FF;
