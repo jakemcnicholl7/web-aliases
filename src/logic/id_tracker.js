@@ -1,5 +1,5 @@
 export default class IdTracker {
-    static INITIAL_ID = 0;
+    static INITIAL_ID = 1;
 
     constructor(id_key) {
         this.id_key = id_key;
