@@ -1,0 +1,15 @@
+{
+  "name": "web-aliases",
+  "version": "1.0.0",
+  "description": "Web Aliases is a Chrome extension that allows users to create nicknames for websites so that users don't have to remember long URLs.",
+  "main": "aliases.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jake McNicholl",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "jquery": "^3.6.4"
+  }
+}
