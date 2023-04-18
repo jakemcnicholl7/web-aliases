@@ -31,9 +31,7 @@ export default class AliasAdditionWidgetGenerator extends BaseAliasWidgetGenerat
     }
 
     delete_button_action(event){
-        let element = event.target 
-        let widget = element.parentNode.parentNode
-        widget.remove()
+        this.remove_widget(event);
     }
 
     create_add_button() {
@@ -50,7 +48,7 @@ export default class AliasAdditionWidgetGenerator extends BaseAliasWidgetGenerat
             "alias": widget.querySelector(".alias").value,
             "url": widget.querySelector(".url").value,
         }
-        this.remove_widget()
+        this.remove_widget(event);
         this.alias_widget_generator.create(values)
     }
 

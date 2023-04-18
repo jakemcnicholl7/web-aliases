@@ -27,7 +27,6 @@ export default class AliasCreationWidgetGenerator extends BaseAliasWidgetGenerat
     }
 
     add_button_action() {
-        //super.remove_widget(event)
         console.log(this)
         console.log(this.link)
         console.log(this.constructor.alias_addition_widget_generator);

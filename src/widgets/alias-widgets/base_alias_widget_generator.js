@@ -29,8 +29,9 @@ export default class BaseAliasWidgetGenerator {
         throw new Error("Implement method")
     }
 
-    remove_widget(){
-        let widget = document.getElementById(this.constructor.WIDGET_ID);
+    remove_widget(event){
+        let element = event.target 
+        let widget = element.parentNode.parentNode
         widget.remove()
     }
 
