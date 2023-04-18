@@ -13,6 +13,7 @@ function setup() {
     let alias_creation_widget_generator = new AliasCreationWidgetGenerator(alias_addition_widget_generator);
 
     alias_creation_widget_generator.create();
+    alias_widget_generator.create_existing_aliases();
 }
 
 window.onload = setup 

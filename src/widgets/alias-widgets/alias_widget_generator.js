@@ -4,24 +4,35 @@ import BaseAliasWidgetGenerator from "/src/widgets/alias-widgets/base_alias_widg
 export default class AliasWidgetGenerator extends BaseAliasWidgetGenerator{
     static WIDGET_ID = "alias-widget"
     static WIDGET_HOLDER = "alias-collection" 
+    static ALIAS_ID = "alias-id-value"
 
     constructor(alias_controller){
         super();
         this.controller = alias_controller;
+        this.delete_button_action = this.delete_button_action.bind(this);
     }
 
-    create(values) {
+    async create_existing_aliases() {
+        let aliases = await this.controller.get_aliases();
+        for(let alias of aliases) {
+            this.create(alias); 
+        }
+    }
+
+    create(alias) {
         let widget = this.create_widget()
-        widget.appendChild(this.create_content(values))
+        widget.appendChild(this.create_content(alias))
         this.append(widget)
         this.delete_button_action = this.delete_button_action.bind(this);
     }
 
-    create_content(values) {
+    create_content(alias) {
         let widget_content = Widget.create_form()
         widget_content.appendChild(this.create_delete_button());
-        widget_content.appendChild(this.add_alias_value(values['alias']));
-        widget_content.appendChild(this.add_url_value(values['url']));
+        widget_content.setAttribute(AliasWidgetGenerator.ALIAS_ID, alias.id);
+        console.log(widget_content.getAttribute(AliasWidgetGenerator.ALIAS_ID))
+        widget_content.appendChild(this.add_alias_value(alias.name));
+        widget_content.appendChild(this.add_url_value(alias.url));
         return widget_content;
     }
 
@@ -32,11 +43,14 @@ export default class AliasWidgetGenerator extends BaseAliasWidgetGenerator{
         return delete_button;
     }
 
-    delete_button_action(event){
-        let element = event.target 
-        let widget = element.parentNode.parentNode
-        // TODO Remove key values from the database
-        widget.remove()
+    async delete_button_action(event){
+        let button = event.target;
+        let form = button.parentNode;
+        let widget = form.parentNode;
+        let id = parseInt(form.getAttribute(AliasWidgetGenerator.ALIAS_ID));
+        console.log(id);
+        widget.remove();
+        await this.controller.delete_alias(id);
     }
 
     add_alias_value(value) {

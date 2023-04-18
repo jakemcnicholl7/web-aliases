@@ -1,5 +1,6 @@
 import RuleGenerator from "/src/logic/rule_generator.js";
 import IdTracker from "/src/logic/id_tracker.js";
+import Alias from "/src/logic/alias.js"
 
 export default class AliasController {
     static instance = null;
@@ -17,14 +18,17 @@ export default class AliasController {
         this.id_tracker = new IdTracker(AliasController.ID_KEY);
     }
 
-    async create_alias(alias) {
+    async create_alias(values) {
         let id = await this.id_tracker.get_id();
-        await this.add_alias(id, alias);
+        values["id"] = id;
+        let alias = Alias.create(values);
+        await this.add_alias(alias);
         await this.id_tracker.increment_id();
+        return alias;
     }
 
-    async add_alias(id, alias) {
-        let rule = RuleGenerator.generate(id, alias);
+    async add_alias(alias) {
+        let rule = RuleGenerator.generate(alias);
         await chrome.declarativeNetRequest.updateDynamicRules({addRules: [rule]});
     }
 
@@ -42,22 +46,31 @@ export default class AliasController {
     }
 
     async get_aliases() {
-        let aliases = await chrome.declarativeNetRequest.getDynamicRules();
-        console.log(aliases);
+        let rules = await this.get_alias_rules();
+        let aliases = [];
+        for (let rule of rules) {
+            aliases.push(RuleGenerator.rule_to_alias(rule));
+        }
         return aliases;
     }
 
+
+    async get_alias_rules() {
+        let alias_rules = await chrome.declarativeNetRequest.getDynamicRules();
+        return alias_rules;
+    }
+
     async get_alias_ids() {
-        let aliases = await this.get_aliases();
+        let alias_rules = await this.get_aliase_rules();
         let ids = []
-        for (let alias of aliases) {
-            ids.push(alias["id"]);
+        for (let rule of alias_rules) {
+            ids.push(rule["id"]);
         }
         return ids;
     }
 
-    async update_alias(id, alias) {
-        await this.delete_alias(id)
-        await this.add_alias(id, alias)
+    async update_alias(alias) {
+        await this.delete_alias(alias.id)
+        await this.add_alias(alias)
     }
 }

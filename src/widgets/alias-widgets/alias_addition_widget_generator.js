@@ -1,5 +1,6 @@
 import Widget from "/src/widgets/widget.js"
 import BaseAliasWidgetGenerator from "/src/widgets/alias-widgets/base_alias_widget_generator.js"
+import Alias from "/src/logic/alias.js"
 
 export default class AliasAdditionWidgetGenerator extends BaseAliasWidgetGenerator{
     static WIDGET_ID = "alias-addition-widget"
@@ -41,7 +42,7 @@ export default class AliasAdditionWidgetGenerator extends BaseAliasWidgetGenerat
         return add_button;
     }
 
-    add_button_action(event){
+    async add_button_action(event){
         let element = event.target 
         let widget = element.parentNode
         let values = {
@@ -49,7 +50,8 @@ export default class AliasAdditionWidgetGenerator extends BaseAliasWidgetGenerat
             "url": widget.querySelector(".url").value,
         }
         this.remove_widget(event);
-        this.alias_widget_generator.create(values)
+        let alias = await this.controller.create_alias(values)
+        this.alias_widget_generator.create(alias)
     }
 
     create_alias_field() {

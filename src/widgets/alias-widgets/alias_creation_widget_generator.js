@@ -27,10 +27,6 @@ export default class AliasCreationWidgetGenerator extends BaseAliasWidgetGenerat
     }
 
     add_button_action() {
-        console.log(this)
-        console.log(this.link)
-        console.log(this.constructor.alias_addition_widget_generator);
-        console.log(this.alias_addition_widget_generator);
         this.alias_addition_widget_generator.create();
     }
 }
