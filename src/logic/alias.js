@@ -1,8 +1,10 @@
+import UrlGenerator from "/src/logic/url_generator.js";
+
 export default class Alias {
     constructor(id, name, url) {
         this.id = id;
         this.name = name;
-        this.url = url;
+        this.url = UrlGenerator.generate(url);
     }
 
     static create(alias_values) {
