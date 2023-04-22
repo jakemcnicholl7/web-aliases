@@ -30,7 +30,6 @@ export default class AliasWidgetGenerator extends BaseAliasWidgetGenerator{
         let widget_content = Widget.create_form()
         widget_content.appendChild(this.create_delete_button());
         widget_content.setAttribute(AliasWidgetGenerator.ALIAS_ID, alias.id);
-        console.log(widget_content.getAttribute(AliasWidgetGenerator.ALIAS_ID))
         widget_content.appendChild(this.add_alias_value(alias.name));
         widget_content.appendChild(this.add_url_value(alias.url));
         return widget_content;
@@ -48,7 +47,6 @@ export default class AliasWidgetGenerator extends BaseAliasWidgetGenerator{
         let form = button.parentNode;
         let widget = form.parentNode;
         let id = parseInt(form.getAttribute(AliasWidgetGenerator.ALIAS_ID));
-        console.log(id);
         widget.remove();
         await this.controller.delete_alias(id);
     }

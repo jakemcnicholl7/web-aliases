@@ -10,7 +10,6 @@ export default class AliasController {
         if (AliasController.instance == null){
             AliasController.instance = new AliasController();
         }
-        console.log(AliasController.instance);
         return AliasController.instance;
     }
 

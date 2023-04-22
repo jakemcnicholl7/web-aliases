@@ -36,7 +36,6 @@ export default class BaseAliasWidgetGenerator {
     }
 
     autofocus() {
-        console.log(this.constructor.WIDGET_AUTOFOCUS_FIELD)
         if (this.constructor.WIDGET_AUTOFOCUS_FIELD == null) {
             return
         }
