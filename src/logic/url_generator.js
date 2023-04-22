@@ -4,7 +4,8 @@ export default class UrlGenerator {
 
     static generate(url) {
         try {
-            return new URL(url)["origin"];
+            new URL(url);
+            return url;
         } catch (error) {
             console.log(UrlGenerator.INVALID_URL_MESSAGE);
         }
