@@ -38,7 +38,7 @@ export default class AliasWidgetGenerator extends BaseAliasWidgetGenerator{
 
     create_delete_button() {
         let delete_button = Widget.create_button()
-        delete_button.innerText = "X"
+        delete_button.innerText = "x"
         delete_button.addEventListener("click", this.delete_button_action);
         return delete_button;
     }

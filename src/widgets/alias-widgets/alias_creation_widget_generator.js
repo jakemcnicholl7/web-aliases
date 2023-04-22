@@ -20,7 +20,7 @@ export default class AliasCreationWidgetGenerator extends BaseAliasWidgetGenerat
 
     create_add_button() {
         let add_button = Widget.create_button()
-        add_button.innerText = "+ Create Alias"
+        add_button.innerText = "+"
         add_button.setAttribute("id", this.constructor.WIDGET_AUTOFOCUS_FIELD)
         add_button.addEventListener("click", this.add_button_action);
         return add_button;
