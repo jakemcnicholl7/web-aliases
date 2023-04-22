@@ -65,7 +65,8 @@ input[type=text]:focus {
 
 .button {
     border: none;
-    border-radius: 20px;
+    border-radius: 150px;
+    padding: 0px 8px;
     background-color: #B0B0B0;
     color: white;
 }
