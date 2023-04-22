@@ -1,11 +1,43 @@
 body {
+    display: block;
     min-width: 400px;
+    text-align: left;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+}
+
+.instructions {
+    margin-left: 40px;
+}
+
+
+.instruction {
+    text-align: left;
+    color: grey;
+    font-size: 10px;
+    border-spacing: 10px;
+}
+
+.title {
+    text-align: center;
+    padding: 2.5px 0px;
+}
+
+td {
+    padding: 0px 10px;
 }
 
 .jumbotron {
     color: #E0B0FF;
     background-color: #f0f0f0;
+    margin: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 a {
@@ -44,6 +76,7 @@ input[type=text]:focus {
 }
 
 .alias-widget {
+    display: block;
     margin: 10px 10px;
     width: min-content;
     border-radius: 40px;
