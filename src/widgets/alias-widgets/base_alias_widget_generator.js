@@ -22,7 +22,7 @@ export default class BaseAliasWidgetGenerator {
 
     append(alias_content) {
         let alias_collection = document.getElementById(this.constructor.WIDGET_HOLDER)
-        alias_collection.appendChild(alias_content)
+        alias_collection.prepend(alias_content)
     }
 
     create_content(){
