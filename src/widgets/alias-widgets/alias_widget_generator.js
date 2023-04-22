@@ -56,14 +56,14 @@ export default class AliasWidgetGenerator extends BaseAliasWidgetGenerator{
     add_alias_value(value) {
         let element = Widget.create_value();
         element.classList.add("alias")
-        element.innerText = "Alias : " + value
+        element.innerText = value
         return element
     }
 
     add_url_value(value) {
         let element = Widget.create_value();
         element.classList.add("url")
-        element.innerText = "URL : " + value
+        element.innerText = value
         return element
     }
 }
