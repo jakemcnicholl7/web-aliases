@@ -38,7 +38,7 @@ export default class AliasAdditionWidgetGenerator extends BaseAliasWidgetGenerat
     create_add_button() {
         let add_button = Widget.create_button();
         add_button.addEventListener("click", this.add_button_action);
-        add_button.innerText = "Add"
+        add_button.innerText = "add"
         return add_button;
     }
 
@@ -58,14 +58,14 @@ export default class AliasAdditionWidgetGenerator extends BaseAliasWidgetGenerat
         let element = Widget.create_input();
         element.classList.add("alias")
         element.setAttribute("id", this.constructor.WIDGET_AUTOFOCUS_FIELD)
-        element.setAttribute("placeholder","Alias")
+        element.setAttribute("placeholder","alias")
         return element
     }
 
     create_url_field() {
         let element = Widget.create_input();
         element.classList.add("url")
-        element.setAttribute("placeholder","URL")
+        element.setAttribute("placeholder","url")
         Widget.add_submission_event(element, this.add_button_action);
         return element
     }
