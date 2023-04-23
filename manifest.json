@@ -10,7 +10,7 @@
         "storage",
         "declarativeNetRequest"
     ],
-    "host_permissions": ["<all_urls>"],
+    "host_permissions": ["https://www.google.com/search?q=*"],
     "icons": {
         "16": "/icons/web_alias_icon_16.png",
         "48": "/icons/web_alias_icon_48.png",
