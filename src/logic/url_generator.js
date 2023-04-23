@@ -15,4 +15,12 @@ export default class UrlGenerator {
     static convert_to_search(text) {
         return UrlGenerator.SEARCH_PREFIX + text.replace(" ", "+");
     }
+
+    static encode(text) {
+        return text.replace(" ", "+")
+    }
+
+    static decode(text) {
+        return text.replace("+", " ") 
+    }
 }

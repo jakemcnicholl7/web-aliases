@@ -1,3 +1,4 @@
+import UrlGenerator from "/src/logic/url_generator.js";
 import Alias from "/src/logic/alias.js"
 
 export default class RuleGenerator {
@@ -17,7 +18,8 @@ export default class RuleGenerator {
     }
 
     static create_rule_condition(value) {
-        return `${RuleGenerator.SEARCH_BAR_PREFIX}${value}${RuleGenerator.SEARCH_BAR_SUFFIX}`;
+        let encoded_value = UrlGenerator.encode(value);
+        return `${RuleGenerator.SEARCH_BAR_PREFIX}${encoded_value}${RuleGenerator.SEARCH_BAR_SUFFIX}`;
     }
 
     static rule_to_alias(rule) {
@@ -30,6 +32,7 @@ export default class RuleGenerator {
     static parse_alias(alias_filter) {
         let start_index = RuleGenerator.SEARCH_BAR_PREFIX.length;
         let end_index = alias_filter.length - RuleGenerator.SEARCH_BAR_SUFFIX.length;
-        return alias_filter.substring(start_index, end_index);
+        let encoded_alias = alias_filter.substring(start_index, end_index);
+        return UrlGenerator.decode(encoded_alias);
     }
 }
