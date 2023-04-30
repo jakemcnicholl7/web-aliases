@@ -15,5 +15,13 @@
         "16": "/icons/web_alias_icon_16.png",
         "48": "/icons/web_alias_icon_48.png",
         "128": "/icons/web_alias_icon_128.png"
+    },
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+L",
+                "mac": "Command+Shift+L"
+            }
+        }
     }
 }
